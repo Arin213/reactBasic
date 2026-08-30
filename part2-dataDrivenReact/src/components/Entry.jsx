@@ -12,8 +12,8 @@ export default function Entry({
         <article className="journal-entry">
             <div className="main-image-container">
                 <img
-                    className="main-image"
                     {...img}
+                    className="main-image"
 
                     // src={img.src}
                     // alt={img.alt}
@@ -21,8 +21,8 @@ export default function Entry({
             </div>
             <div className="info-container">
                 <img
-                    className="marker"
                     {...imgMarker}
+                    className="marker"
                     // src={imgMarker.src}
                     // alt={imgMarker.alt}
                 />
