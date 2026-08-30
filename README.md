@@ -8,9 +8,9 @@ A hands-on, code-along learning repository following the **Scrimba "Learn React"
 
 ## 🎯 Learning Path Overview
 
-| # | Part | Folder | Topic | What you'll learn |
+| # | Part | Folder | Topic | What we'll learn |
 |---|---|---|---|---|
-| 1 | **Static Pages** | `part1-static-pages/` | JSX, components, props (intro) | Build a static card layout (Navbar + Main) — your first taste of composing React components |
+| 1 | **Static Pages** | `part1-static-pages/` | JSX, components, props (intro) | Build a static card layout (Navbar + Main) — The first taste of composing React components |
 | 2 | **Data-Driven React** | `part2-dataDrivenReact/` | Props, arrays, `.map()`, destructuring | Render a **Travel Journal** from a `data.js` array — pass data through components |
 | 3 | **React State** | `part3-react-state/` *(planned)* | `useState`, event handlers, controlled inputs | Build an **Airbnb experiences clone** with clickable counters and image gallery state |
 | 4 | **Side Effects** | `part4-side-effects/` *(planned)* | `useEffect`, data fetching, lifecycle | Build a **Movie Watchlist** that fetches from an API and persists to `localStorage` |
