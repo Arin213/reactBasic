@@ -9,7 +9,7 @@ export default function App() {
 
     })=>{
         return <Entry 
-            id={id}
+            key={id}
             img={img}
             imgMarker={imgMarker}
             title={title}
