@@ -3,20 +3,29 @@ import Entry from "./components/Entry";
 import data from "./data"; 
 
 export default function App() {
-    const travelDestinations = data.map(({
-        id, img, imgMarker, title, country,
-        googleMapsLink, dates, text
+    const travelDestinations = data.map((destination)=>{
+    
+    // THIS WAS THE PART OF DESTRUCTURING THAT I DIDN'T UNDERSTAND AT FIRST, BUT NOW I GET IT.
+    // IT'S A WAY TO EXTRACT PROPERTIES FROM AN OBJECT AND ASSIGN THEM TO VARIABLES WITH THE SAME NAME.
+    // IN THIS CASE, WE'RE EXTRACTING THE PROPERTIES OF EACH DESTINATION OBJECT IN THE DATA ARRAY.  
+        //     {
+    //     id, img, imgMarker, title, country,
+    //     googleMapsLink, dates, text
 
-    })=>{
+    // }
         return <Entry 
-            key={id}
-            img={img}
-            imgMarker={imgMarker}
-            title={title}
-            country={country}
-            googleMapLinks={googleMapsLink}
-            dates={dates}
-            text={text}
+            key={destination.id}
+            {...destination} // Spread operator to pass all properties of destination as props  
+            
+            // THIS IS HOW YOU WOULD PASS EACH PROPERTY INDIVIDUALLY, 
+            // BUT THE SPREAD OPERATOR ABOVE DOES THE SAME THING MORE EFFICIENTLY
+            // img={img}
+            // imgMarker={imgMarker}
+            // title={title}
+            // country={country}
+            // googleMapLinks={googleMapsLink}
+            // dates={dates}
+            // text={text}
         />
     });
     return (

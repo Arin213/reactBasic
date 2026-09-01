@@ -2,7 +2,7 @@ export default function Entry({
     img,
     imgMarker,
     country,
-    googleMapLinks,
+    googleMapsLink,
     title,
     dates,
     text
@@ -27,7 +27,7 @@ export default function Entry({
                     // alt={imgMarker.alt}
                 />
                 <span className="country">{country}</span>
-                <a href={googleMapLinks}>View on Google Maps</a>
+                <a href={googleMapsLink}>View on Google Maps</a>
                 <h2 className="entry-title">{title}</h2>
                 <p className="trip-dates">{dates}</p>
                 <p className="entry-text">{text}</p>
