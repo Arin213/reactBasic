@@ -5,9 +5,45 @@
 body {
     margin: 0;
     font-family: Inter, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;  /* centers container horizontally */
+    align-items: center;      /* centers container vertically */
 }
 
-/**
-header box shadow code:
-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.10), 0px 1px 2px 0px rgba(0, 0, 0, 0.06);
-*/
+.container {
+    width: 50vw;           /* half viewport width */
+    height: 50vh;          /* half viewport height */
+    display: flex;
+    flex-direction: column; /* stacks header + content vertically */
+    border: 1px solid #ddd; /* optional: visualize container bounds */
+    border-radius: 8px;
+    overflow: hidden;      /* keeps header inside rounded corners */
+    background: white;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    width: 100%;           /* fills container width */
+    padding: 16px;         /* optional spacing inside header */
+    background: #fafafa;   /* optional: distinguish header */
+    border-bottom: 1px solid #eee; /* optional separator */
+    flex-shrink: 0;           /* prevents header from stretching */
+}
+
+.header-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Optional: style for content area below header */
+.main-content {
+    flex: 1;                  /* takes remaining space */
+    padding: 16px;
+    overflow: auto;
+}
+
