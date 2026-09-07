@@ -1,13 +1,13 @@
-
+import chefImg from "/chef-claude-icon.png"
 
 export default function Header() {
   // console.log({...img});
   // const {id, img} = props;
   return (
-    <header>
-      <div className="container">
+    <header className="header-container">
+      <div className="img-container">
         <img
-          src="/public/chef-claude-icon.png" alt="chef-cluade"
+          src={chefImg} alt="chef-cluade"
         />
         <span>Chef Claude</span>
       </div>
