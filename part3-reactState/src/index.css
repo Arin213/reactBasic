@@ -9,21 +9,22 @@ body {
 
 .container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    border: 1px solid red;
-    /* width: 90%; */
-    max-width: 729px;
-    height: auto;
-    margin: 0 auto;
+    width: 100%;
+    max-width: 720px;
+    margin: 70px auto 0 auto;
+    padding: 0 16px;
 }
 
 .header-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 720px;
-    border: 1px solid black;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 20px 16px;
+    /* border: 1px solid black; */
      box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.10), 0px 1px 2px 0px rgba(0, 0, 0, 0.06);
 }
 
@@ -31,9 +32,90 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* height: auto; */
+    flex-wrap: wrap;
+    height: auto;
     gap: 11px;
    
+}
+
+.img-container > img {
+    width: 43px;
+    height: 52px;
+    max-width: 100%;
+    flex-shrink: 0;
+}
+
+.img-container > .text-name {
+    font-weight: 400;
+    font-size: clamp(1.25rem, 5vw, 2rem);
+    font-family: Inter, sans-serif ;
+    color: #141413;
+
+
+}
+
+main {
+    width: 100%;
+    padding: 30px 14px 10px;
+}
+
+.add-ingredient-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    min-height: 38px;
+    width: 100%;
+}
+
+.add-ingredient-form > input {
+    border-radius: 6px;
+    border: 1px solid #D1D5DB;
+    padding: 9px 13px;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+    flex: 1 1 200px;
+    min-width: 0;
+    max-width: 400px;
+}
+
+.add-ingredient-form > button {
+    font-family: Inter, sans-serif;
+    border-radius: 6px;
+    border: none;
+    background-color: #141413;
+    color: #FAFAF8;
+    flex: 0 1 150px;
+    min-width: 120px;
+    padding: 9px 13px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.add-ingredient-form > button::before {
+    content: "+";
+    margin-right: 5px;
+}
+
+@media (max-width: 480px) {
+    .container {
+        margin-top: 24px;
+    }
+
+    main {
+        padding: 20px 0 10px;
+    }
+
+    .add-ingredient-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .add-ingredient-form > input,
+    .add-ingredient-form > button {
+        flex: 1 1 auto;
+        width: 100%;
+        max-width: none;
+    }
 }
 /**
 header box shadow code:

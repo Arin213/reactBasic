@@ -9,7 +9,7 @@ export default function Header() {
         <img
           src={chefImg} alt="chef-cluade"
         />
-        <span>Chef Claude</span>
+        <span className="text-name">Chef Claude</span>
       </div>
     </header >
   )
