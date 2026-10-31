@@ -1,5 +1,8 @@
+import { useState } from "react";
+
 export default function Main() {
-    const ingredients = ["Chicken", "Oregano", "Tomatoes"]
+    const [ingredients, setIngredients] = useState(["Chicken", "Oregano", "Tomatoes"]) 
+    // console.log(ingredients) // ingredients is an array of 2 elements, first element is the state value and second element is the function to update the state value.
     /**
      * Review Challenge:
      * Map over the list of ingredients and render them as list items
@@ -18,7 +21,7 @@ export default function Main() {
      * Hint: this is a one-liner solution, so don't overthink it 😅
      */
 
-    ingredients.push(newIngrediant); // newIngrediant is out of scope need state to store it and update the state when new ingredient is added.
+    // ingredients.push(newIngrediant); // newIngrediant is out of scope need state to store it and update the state when new ingredient is added.
 
 
     const ingredientList = ingredients.map((item) => {
@@ -51,13 +54,26 @@ export default function Main() {
             So those 2 lines just mean: "grab what user typed in the ingredient box".
 
          * */
-        const formData = new FormData(event.currentTarget);
-        const newIngrediant = formData.get("ingredient");
+        const formData = new FormData(event.currentTarget); // So event.currentTarget === your <form> DOM node.
+        
+        // It reads a single value out of a FormData object — specifically, whatever input in the form has name="ingredient" 
+        // — and stores it in a variable called newIngrediant.
+        const newIngrediant = formData.get("ingredient"); 
         // console.log(newIngrediant);
-        ingredients.push(newIngrediant); // yet pushed to array but the map and updating runs before pushing so again bug 
+        //ingredients.push(newIngrediant); // yet pushed to array but the map and updating runs before pushing so again bug 
         // console.log(ingredients);
+        setIngredients(prevIngredients => [...prevIngredients, newIngrediant]);
 
     }
+
+    // Flow:
+
+    // User types in <input name="ingredient">
+    // Clicks button → form submits → handleSubmit fires
+    // event.preventDefault() stops reload
+    // new FormData(event.currentTarget) packages form data: { ingredient: "oregano" }
+    // .get("ingredient") extracts "oregano"
+    // setIngredients([...ingredients, "oregano"]) creates new array and triggers re-render
 
     return (
         <main>
@@ -76,3 +92,4 @@ export default function Main() {
         </main>
     )
 }
+
