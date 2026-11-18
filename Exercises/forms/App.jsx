@@ -120,8 +120,8 @@ export default function App() {
                         <option value="yellow">Yellow</option>
                         <option value="green">Green</option>
                         <option value="blue">Blue</option>
-                        <option value="blue">Indigo</option>
-                        <option value="blue">Voilet</option>
+                        <option value="indigo">Indigo</option>
+                        <option value="voilet">Voilet</option>
                     </select>
 
                     <button type="submit">Submit</button>
