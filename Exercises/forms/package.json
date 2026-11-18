@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "forms-practice",
   "description": "Forms practice set",
   "scripts": {

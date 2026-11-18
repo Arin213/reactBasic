@@ -36,35 +36,36 @@ export default function Main() {
      * Add an `onSubmit` event listener on the form. Have the function
      * simply console.log("Form submitted!") for now
      */
-    function handleSubmit(event) {
-        event.preventDefault() // this will stop the default behavior of browser i.e reloading 
-        // alert("Form submitted!")
+    // function handleSubmit(event) {
+    //     event.preventDefault() // this will stop the default behavior of browser i.e reloading 
+    //     // alert("Form submitted!")
 
 
-        /**
-         * <form onSubmit={handleSubmit}>
-            <input name="ingredient" />
-            </form>
+    //     /**
+    //      * <form onSubmit={handleSubmit}>
+    //         <input name="ingredient" />
+    //         </form>
             
-            1. event.currentTarget = the <form> itself.
-            target = what triggered it (the button), currentTarget = what the listener is attached to (the form). For forms you always want currentTarget.
-            2. new FormData(event.currentTarget) = browser packages all inputs in that form into a key-value object using their name:
-            { "ingredient": "what user typed" }
-            3. .get("ingredient") = read value for key "ingredient" - must match name="ingredient" exactly. That's why you use name, not id or placeholder.
-            So those 2 lines just mean: "grab what user typed in the ingredient box".
+    //         1. event.currentTarget = the <form> itself.
+    //         target = what triggered it (the button), currentTarget = what the listener is attached to (the form). For forms you always want currentTarget.
+    //         2. new FormData(event.currentTarget) = browser packages all inputs in that form into a key-value object using their name:
+    //         { "ingredient": "what user typed" }
+    //         3. .get("ingredient") = read value for key "ingredient" - must match name="ingredient" exactly. That's why you use name, not id or placeholder.
+    //         So those 2 lines just mean: "grab what user typed in the ingredient box".
 
-         * */
-        const formData = new FormData(event.currentTarget); // So event.currentTarget === your <form> DOM node.
+    //      * */
+    //     const formData = new FormData(event.currentTarget); // So event.currentTarget === your <form> DOM node.
         
-        // It reads a single value out of a FormData object — specifically, whatever input in the form has name="ingredient" 
-        // — and stores it in a variable called newIngrediant.
-        const newIngrediant = formData.get("ingredient"); 
-        // console.log(newIngrediant);
-        //ingredients.push(newIngrediant); // yet pushed to array but the map and updating runs before pushing so again bug 
-        // console.log(ingredients);
-        setIngredients(prevIngredients => [...prevIngredients, newIngrediant]);
+    //     // It reads a single value out of a FormData object — specifically, whatever input in the form has name="ingredient" 
+    //     // — and stores it in a variable called newIngrediant.
+    //     const newIngrediant = formData.get("ingredient"); 
+    //     // console.log(newIngrediant);
+    //     //ingredients.push(newIngrediant); // yet pushed to array but the map and updating runs before pushing so again bug 
+    //     // console.log(ingredients);
+    //     setIngredients(prevIngredients => [...prevIngredients, newIngrediant]);
 
-    }
+    // }
+
 
     // Flow:
 
@@ -75,9 +76,25 @@ export default function Main() {
     // .get("ingredient") extracts "oregano"
     // setIngredients([...ingredients, "oregano"]) creates new array and triggers re-render
 
+
+    
+    // //NOW wit the action event we can directyl pass the the formData 
+    // and the other annoying part such as preventDefault(), all handle by 
+    // the react 19 onward 
+
+    function handleSubmit(formData) {
+        const getIngrdients = formData.get("ingredient");
+        //set  the ingredient use awlays function updater
+        setIngredients(prevIngredeients => [...prevIngredeients, getIngrdients]);
+
+    }
+
+
     return (
         <main>
-            <form className="add-ingredient-form" onSubmit={handleSubmit}>
+            {/* <form className="add-ingredient-form" onSubmit={handleSubmit}> */}
+            {/* Instead of onSubmit we use the action. Made easy for us in react 19 onward */}
+            <form className="add-ingredient-form" action={handleSubmit}>
                 <input
                     type="text"
                     placeholder="e.g oregano"
